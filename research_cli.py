@@ -273,6 +273,29 @@ def check_and_add_extended_domains(config: ConfigManager):
     return []
 
 
+def reload_config_domains(config: ConfigManager):
+    """Reload domains from file into config instance"""
+    domains_file = Path(config.config_dir) / 'domains.json'
+    
+    try:
+        # Try using the private method if it exists
+        if hasattr(config, '_load_domains') and callable(getattr(config, '_load_domains')):
+            config._load_domains()
+        else:
+            # Manually reload domains from file
+            with open(domains_file, 'r') as f:
+                config.domains = json.load(f)
+        
+        # Also clear any cached domain list if it exists
+        if hasattr(config, '_available_domains_cache'):
+            delattr(config, '_available_domains_cache')
+        
+        return True
+    except Exception as e:
+        print(f"⚠️  Warning: Could not reload domains: {e}")
+        return False
+
+
 def ensure_backward_compatibility(config: ConfigManager):
     """Ensure all old functionality works with new features"""
     # Auto-add extended domains if they don't exist
@@ -283,14 +306,7 @@ def ensure_backward_compatibility(config: ConfigManager):
         print("   (All existing domains preserved)")
         
         # CRITICAL FIX: Reload the configuration after adding domains
-        # Try the private method first, fall back to re-reading the file
-        if hasattr(config, '_load_domains'):
-            config._load_domains()
-        else:
-            # Manually reload domains from file
-            domains_file = Path(config.config_dir) / 'domains.json'
-            with open(domains_file, 'r') as f:
-                config.domains = json.load(f)
+        reload_config_domains(config)
     
     # Verify core domains still exist
     core_domains = ['botany', 'medical', 'mathematics', 'carpentry']
@@ -603,9 +619,7 @@ Examples:
             for domain in added:
                 print(f"  • {domain}")
             # Reload config after adding
-            domains_file = Path(config.config_dir) / 'domains.json'
-            with open(domains_file, 'r') as f:
-                config.domains = json.load(f)
+            reload_config_domains(config)
         else:
             print("ℹ️  All extended domains already exist in configuration")
         
@@ -631,9 +645,7 @@ Examples:
             if added:
                 print(f"✅ Domain '{args.domain}' is now available!")
                 # Reload domains after adding
-                domains_file = Path(config.config_dir) / 'domains.json'
-                with open(domains_file, 'r') as f:
-                    config.domains = json.load(f)
+                reload_config_domains(config)
                 # Now switch to the newly added domain
                 config.switch_domain(args.domain)
             else:
