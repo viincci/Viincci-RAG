@@ -92,8 +92,8 @@ def test_imports():
         assert RAGSystem is not None
     
     def test_art_gen():
-        from V4.ArtGenSys import EnhancedPlantArticleGenerator
-        assert EnhancedPlantArticleGenerator is not None
+        from V4.UniversalArticleGenerator import UniversalArticleGenerator
+        assert UniversalArticleGenerator is not None
     
     def test_api_monitor():
         from V4.ApiMonitor import SerpAPIMonitor
@@ -274,9 +274,9 @@ def test_api_monitor():
 
 def test_article_generator():
     """Test 6: Article Generator"""
-    print_header("Test 6: Article Generator")
+    print_header("Test 6: Universal Article Generator")
     
-    from V4.ArtGenSys import ContentCleaner, EnhancedPlantArticleGenerator
+    from V4.UniversalArticleGenerator import ContentCleaner, UniversalArticleGenerator
     from V4.ConfigManager import ConfigManager
     runner = TestRunner()
     
@@ -305,13 +305,22 @@ def test_article_generator():
     
     def test_generator_init():
         config = ConfigManager(verbose=False)
-        generator = EnhancedPlantArticleGenerator(config, fetch_images=False)
+        generator = UniversalArticleGenerator(config, fetch_images=False)
         assert generator is not None
+        assert generator.domain in ['botany', 'medical', 'mathematics', 'carpentry']
+    
+    def test_domain_sections():
+        config = ConfigManager(domain='medical', verbose=False)
+        generator = UniversalArticleGenerator(config, fetch_images=False)
+        sections = generator.get_domain_sections("Test Topic")
+        assert len(sections) > 0
+        assert all('name' in s and 'query' in s for s in sections)
     
     runner.run_test("ContentCleaner initialization", test_content_cleaner)
     runner.run_test("Remove citations", test_remove_citations)
     runner.run_test("Markdown conversion", test_markdown_conversion)
     runner.run_test("Generator initialization", test_generator_init)
+    runner.run_test("Domain sections", test_domain_sections)
     
     return runner.passed, runner.failed
 
