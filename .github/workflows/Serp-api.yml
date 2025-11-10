@@ -71,7 +71,7 @@ jobs:
         "
 
     - name: Upload API status
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: api-status
         path: api_status.txt
@@ -110,7 +110,7 @@ jobs:
         mkdir -p _posts
 
     - name: Download API status
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: api-status
 
@@ -171,7 +171,7 @@ jobs:
 
     - name: Upload search results
       if: always()
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: search-results-${{ matrix.domain }}
         path: ${{ matrix.domain }}_search_results.json
@@ -203,7 +203,7 @@ jobs:
         mkdir -p _posts
 
     - name: Download search results
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: search-results-botany
 
@@ -376,7 +376,10 @@ jobs:
     
     steps:
     - name: Download all artifacts
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
+      with:
+        pattern: '*'
+        path: artifacts/
 
     - name: Generate Test Report
       run: |
@@ -388,8 +391,8 @@ jobs:
         echo "## Test Results" >> report.md
         echo "" >> report.md
         
-        if [ -f api-status/api_status.txt ]; then
-          credits=$(cat api-status/api_status.txt)
+        if [ -f artifacts/api-status/api_status.txt ]; then
+          credits=$(cat artifacts/api-status/api_status.txt)
           echo "- **API Credits Remaining:** $credits" >> report.md
         fi
         
@@ -400,8 +403,8 @@ jobs:
         
         echo "## Search Results by Domain" >> report.md
         for domain in botany medical mathematics; do
-          if [ -f "search-results-${domain}/${domain}_search_results.json" ]; then
-            count=$(cat "search-results-${domain}/${domain}_search_results.json" | grep -o '"url"' | wc -l)
+          if [ -f "artifacts/search-results-${domain}/${domain}_search_results.json" ]; then
+            count=$(cat "artifacts/search-results-${domain}/${domain}_search_results.json" | grep -o '"url"' | wc -l)
             echo "- **${domain}:** ${count} results" >> report.md
           fi
         done
@@ -413,7 +416,7 @@ jobs:
         cat report.md
 
     - name: Upload Test Report
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: test-report
         path: report.md
