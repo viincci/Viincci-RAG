@@ -348,6 +348,7 @@ jobs:
 
     - name: Generate Article
       run: |
+        pip install -r requirements.txt
         python -c "
         import json
         import os
