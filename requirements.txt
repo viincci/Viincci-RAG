@@ -28,5 +28,5 @@ flake8>=6.1.0
 black>=23.0.0
 
 # Optional: For faster inference
-# accelerate>=0.24.0
-# bitsandbytes>=0.41.0
+accelerate>=0.24.0
+bitsandbytes>=0.41.0
