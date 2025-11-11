@@ -19,28 +19,36 @@ __version__ = "4.0.0"
 __author__ = "Viincci Team"
 __license__ = "MIT"
 
-# Core classes and utilities (re-exported from V4 for backward compatibility)
+# Prefer importing viincci_rag core modules (new layout). If those are not
+# available, fall back to the legacy `V4` package. This makes `viincci_rag`
+# the canonical import path while retaining backward compatibility.
 try:
-    from V4 import (
-        ConfigManager,
-        FloraDatabase,
-        RAGSystem,
-        UniversalArticleGenerator,
-        UniversalResearchSpider,
-        SerpAPIMonitor,
-        EnhancedPlantArticleGenerator,
-        FloraWikipediaScraper,
-    )
+    # Import from the package-local core wrappers first
+    from viincci_rag.core.config import ConfigManager  # type: ignore
+    from viincci_rag.core.spider import UniversalResearchSpider  # type: ignore
+    from viincci_rag.core.rag_system import RAGSystem  # type: ignore
+    from viincci_rag.core.article_generator import UniversalArticleGenerator  # type: ignore
+    from viincci_rag.core.api_monitor import SerpAPIMonitor  # type: ignore
+    from viincci_rag.database import FloraDatabase  # type: ignore
 except Exception:
-    # Fallback stubs if V4 imports fail
-    ConfigManager = None
-    FloraDatabase = None
-    RAGSystem = None
-    UniversalArticleGenerator = None
-    UniversalResearchSpider = None
-    SerpAPIMonitor = None
-    EnhancedPlantArticleGenerator = None
-    FloraWikipediaScraper = None
+    # Fallback to legacy V4 package if viincci_rag.core imports fail
+    try:
+        from V4 import (
+            ConfigManager,
+            FloraDatabase,
+            RAGSystem,
+            UniversalArticleGenerator,
+            UniversalResearchSpider,
+            SerpAPIMonitor,
+        )
+    except Exception:
+        # Fallback stubs if nothing is importable
+        ConfigManager = None
+        FloraDatabase = None
+        RAGSystem = None
+        UniversalArticleGenerator = None
+        UniversalResearchSpider = None
+        SerpAPIMonitor = None
 
 __all__ = [
     # Version info
