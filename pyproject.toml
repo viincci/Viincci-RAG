@@ -109,10 +109,10 @@ testpaths = ["tests"]
 python_files = ["test_*.py", "*_test.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]
-addopts = "-v --cov=V4 --cov-report=term-missing --cov-report=html"
+addopts = "-v --cov=V4 --cov=viincci_rag --cov-report=term-missing --cov-report=html"
 
 [tool.coverage.run]
-source = ["V4"]
+source = ["V4", "viincci_rag"]
 omit = [
     "*/tests/*",
     "*/test_*.py",
