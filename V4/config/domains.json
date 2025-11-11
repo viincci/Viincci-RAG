@@ -1,132 +1,158 @@
 {
   "botany": {
     "name": "Botanical Research",
-    "description": "Plant and flora research with focus on taxonomy, cultivation, and ecology",
-    "primary_sources": ["university", "research_institute", "botanical_garden", "herbarium"],
+    "description": "Plant science, taxonomy, ecology, and horticultural studies",
+    "primary_sources": ["university", "botanical_garden", "research_institute", "herbarium"],
     "questions": [
-      "what are the benefits and uses",
-      "interesting botanical facts",
-      "care and cultivation guide",
-      "physical description and characteristics",
-      "native habitat and distribution"
+      "what is the scientific classification and taxonomy",
+      "what are the morphological characteristics",
+      "what is the natural habitat and geographic distribution",
+      "what are the ecological relationships and interactions",
+      "what are the cultivation requirements and uses"
     ],
-    "keywords": ["plant", "botanical", "species", "cultivation", "taxonomy", "flora"]
+    "keywords": ["plant", "species", "botanical", "flora", "genus", "family", "cultivation", "habitat"]
   },
   "medical": {
     "name": "Medical Research",
-    "description": "Medical and healthcare research including diseases, treatments, and anatomy",
-    "primary_sources": ["university", "hospital", "research_institute", "medical_journal", "clinical_trial"],
+    "description": "Human health, diseases, treatments, and medical science",
+    "primary_sources": ["university", "hospital", "medical_school", "research_institute", "nih", "who"],
     "questions": [
-      "what are the symptoms and signs",
-      "what are the current treatments",
-      "what causes this condition",
-      "what are the risk factors",
-      "diagnosis and testing methods"
+      "what is the pathophysiology and etiology",
+      "what are the clinical manifestations and symptoms",
+      "what are the diagnostic methods and criteria",
+      "what are the treatment options and protocols",
+      "what is the prognosis and prevention"
     ],
-    "keywords": ["medical", "disease", "treatment", "diagnosis", "clinical", "patient", "health"]
+    "keywords": ["disease", "treatment", "medical", "clinical", "patient", "diagnosis", "therapy", "health"]
+  },
+  "mathematics": {
+    "name": "Mathematical Research",
+    "description": "Pure and applied mathematics, theorems, and mathematical concepts",
+    "primary_sources": ["university", "research_institute", "mathematical_society"],
+    "questions": [
+      "what is the formal definition and mathematical framework",
+      "what are the key theorems and proofs",
+      "what are the mathematical properties and characteristics",
+      "what are the applications and practical uses",
+      "what is the historical development and related concepts"
+    ],
+    "keywords": ["theorem", "proof", "mathematical", "equation", "formula", "theory", "calculation"]
   },
   "carpentry": {
     "name": "Carpentry & Woodworking",
-    "description": "Woodworking techniques, tools, materials, and construction methods",
-    "primary_sources": ["university", "trade_school", "professional_association", "industry_journal"],
+    "description": "Woodworking techniques, joinery, tools, and construction methods",
+    "primary_sources": ["trade_school", "woodworking_association", "construction_institute"],
     "questions": [
-      "what are the required techniques",
-      "what tools and materials are needed",
-      "safety considerations and best practices",
-      "common mistakes and how to avoid them",
-      "step-by-step process"
+      "what are the basic techniques and methods",
+      "what tools and materials are required",
+      "what are the steps and procedures",
+      "what are common applications and uses",
+      "what are best practices and safety considerations"
     ],
-    "keywords": ["wood", "carpentry", "woodworking", "construction", "joinery", "timber", "tools"]
-  },
-  "mathematics": {
-    "name": "Mathematics Research",
-    "description": "Mathematical concepts, theorems, formulas, and proofs",
-    "primary_sources": ["university", "research_institute", "mathematical_society", "academic_journal"],
-    "questions": [
-      "what is the theorem or formula",
-      "what are the applications and uses",
-      "proof and mathematical derivation",
-      "historical context and development",
-      "related concepts and extensions"
-    ],
-    "keywords": ["mathematics", "theorem", "proof", "formula", "equation", "mathematical", "calculus", "algebra"]
+    "keywords": ["wood", "joint", "carpentry", "construction", "technique", "tool", "building"]
   },
   "engineering": {
-    "name": "Engineering Research",
-    "description": "Engineering principles, designs, and technical specifications",
-    "primary_sources": ["university", "research_institute", "engineering_society", "technical_journal"],
+    "name": "Engineering",
+    "description": "Engineering principles, design, systems, and technical applications",
+    "primary_sources": ["university", "engineering_society", "research_institute", "technical_institute"],
     "questions": [
-      "what are the engineering principles",
-      "design specifications and requirements",
-      "materials and construction methods",
-      "performance characteristics",
-      "standards and regulations"
+      "what are the fundamental principles and theory",
+      "what are the design considerations and requirements",
+      "what are the technical specifications and standards",
+      "what are the implementation methods and processes",
+      "what are the applications and case studies"
     ],
-    "keywords": ["engineering", "design", "technical", "specification", "mechanical", "structural", "system"]
+    "keywords": ["engineering", "design", "system", "technical", "specification", "application", "technology"]
   },
   "chemistry": {
     "name": "Chemistry Research",
-    "description": "Chemical compounds, reactions, and properties",
+    "description": "Chemical compounds, reactions, properties, and applications",
     "primary_sources": ["university", "research_institute", "chemical_society", "laboratory"],
     "questions": [
-      "what are the chemical properties",
-      "synthesis and preparation methods",
-      "reactions and mechanisms",
-      "safety and handling procedures",
-      "applications and uses"
+      "what is the chemical structure and composition",
+      "what are the physical and chemical properties",
+      "what are the reaction mechanisms and pathways",
+      "what are the synthesis methods and procedures",
+      "what are the applications and safety considerations"
     ],
-    "keywords": ["chemistry", "compound", "reaction", "synthesis", "molecular", "chemical", "laboratory"]
+    "keywords": ["chemical", "compound", "reaction", "molecule", "synthesis", "properties", "laboratory"]
   },
   "physics": {
     "name": "Physics Research",
-    "description": "Physical phenomena, theories, and experimental methods",
-    "primary_sources": ["university", "research_institute", "physics_society", "observatory"],
+    "description": "Physical phenomena, laws, theories, and experimental physics",
+    "primary_sources": ["university", "research_institute", "physics_society", "laboratory"],
     "questions": [
-      "what are the physical principles",
-      "theoretical framework",
-      "experimental methods and observations",
-      "practical applications",
-      "current research and developments"
+      "what are the fundamental physical principles",
+      "what are the theoretical frameworks and models",
+      "what are the experimental methods and observations",
+      "what are the mathematical formulations",
+      "what are the applications and implications"
     ],
-    "keywords": ["physics", "physical", "theory", "quantum", "particle", "energy", "force", "motion"]
+    "keywords": ["physics", "force", "energy", "particle", "quantum", "theory", "experiment", "law"]
   },
   "computer_science": {
-    "name": "Computer Science Research",
-    "description": "Algorithms, data structures, programming, and computing systems",
-    "primary_sources": ["university", "research_institute", "tech_company", "academic_journal"],
+    "name": "Computer Science",
+    "description": "Algorithms, programming, systems, and computational theory",
+    "primary_sources": ["university", "research_institute", "tech_company", "conference"],
     "questions": [
-      "what is the algorithm or data structure",
-      "time and space complexity analysis",
-      "implementation details",
-      "practical applications and use cases",
-      "advantages and limitations"
+      "what are the core concepts and principles",
+      "what are the algorithmic approaches and methods",
+      "what are the implementation techniques",
+      "what are the performance characteristics and complexity",
+      "what are the applications and use cases"
     ],
-    "keywords": ["algorithm", "programming", "computer", "software", "data", "computation", "code"]
+    "keywords": ["algorithm", "programming", "computer", "software", "system", "data", "computational"]
   },
-  "history": {
-    "name": "Historical Research",
-    "description": "Historical events, figures, periods, and analysis",
-    "primary_sources": ["university", "museum", "archive", "historical_society", "library"],
+  "art_history": {
+    "name": "Art History Research",
+    "description": "Art movements, artists, techniques, and historical periods",
+    "primary_sources": ["museum", "university", "art_institute", "gallery", "archive"],
     "questions": [
-      "what were the key events",
-      "who were the important figures",
-      "what was the historical context",
-      "what were the causes and effects",
-      "how is it interpreted today"
+      "what are the key characteristics of this art movement",
+      "who were the major artists and their contributions",
+      "what was the historical and cultural context",
+      "what techniques and materials were used",
+      "what is the lasting influence and legacy"
     ],
-    "keywords": ["history", "historical", "era", "period", "ancient", "medieval", "modern", "century"]
+    "keywords": ["art", "artist", "painting", "sculpture", "movement", "style", "technique", "period"]
   },
-  "law": {
-    "name": "Legal Research",
-    "description": "Legal principles, cases, statutes, and interpretations",
-    "primary_sources": ["university", "law_school", "court", "legal_journal", "bar_association"],
+  "literature": {
+    "name": "Literature Research",
+    "description": "Literary works, authors, movements, and critical analysis",
+    "primary_sources": ["university", "library", "literary_journal", "archive", "institute"],
     "questions": [
-      "what is the legal principle",
-      "key cases and precedents",
-      "statutory requirements",
-      "jurisdictional variations",
-      "practical implications"
+      "what are the major themes and motifs",
+      "what is the historical and biographical context",
+      "what are the literary techniques and style",
+      "how was it received and interpreted",
+      "what is its cultural and literary significance"
     ],
-    "keywords": ["legal", "law", "statute", "case", "court", "jurisdiction", "precedent", "ruling"]
+    "keywords": ["literature", "author", "novel", "poetry", "literary", "writing", "text", "work"]
+  },
+  "music": {
+    "name": "Music Research",
+    "description": "Musical genres, composers, theory, and historical development",
+    "primary_sources": ["university", "conservatory", "music_journal", "archive", "institute"],
+    "questions": [
+      "what are the musical characteristics and structure",
+      "who were the key composers or performers",
+      "what is the historical development and context",
+      "what are the theoretical and technical elements",
+      "what is the cultural impact and influence"
+    ],
+    "keywords": ["music", "composer", "musical", "symphony", "composition", "genre", "performance"]
+  },
+  "creative_writing": {
+    "name": "Creative Writing",
+    "description": "Fiction, poetry, narrative techniques, and storytelling craft",
+    "primary_sources": ["university", "writing_workshop", "literary_magazine", "mfa_program"],
+    "questions": [
+      "what are the narrative techniques and structures",
+      "what are the elements of craft and style",
+      "what are the stylistic approaches and methods",
+      "what are contemporary trends and practices",
+      "what are best practices and exemplary works"
+    ],
+    "keywords": ["writing", "narrative", "story", "fiction", "poetry", "creative", "craft", "technique"]
   }
 }
