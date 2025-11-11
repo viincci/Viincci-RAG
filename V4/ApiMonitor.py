@@ -73,7 +73,14 @@ class SerpAPIMonitor:
             return {
                 "status": "error",
                 "message": "Failed to retrieve account information",
-                "can_proceed": False
+                "can_proceed": False,
+                "searches_remaining": 0,
+                "searches_used": 0,
+                "plan_searches": 0,
+                "usage_percent": 0,
+                "account_email": "Unknown",
+                "plan_name": "Unknown",
+                "checked_at": datetime.now().strftime('%Y-%m-%d %H:%M:%S')
             }
         
         # Extract credit information
@@ -122,7 +129,7 @@ class SerpAPIMonitor:
     def print_status(self, status: Dict):
         """Print formatted credit status."""
         print("\n" + "="*70)
-        print(f"🔍 SerpAPI Account Status - {status['checked_at']}")
+        print(f"📊 SerpAPI Account Status - {status['checked_at']}")
         print("="*70)
         print(f"Account: {status.get('account_email', 'Unknown')}")
         print(f"Plan: {status.get('plan_name', 'Unknown')}")
@@ -186,18 +193,21 @@ class SerpAPIMonitor:
         
         status = self.check_credits(verbose=False)
         
-        can_afford = status['searches_remaining'] >= total_searches
-        remaining_after = status['searches_remaining'] - total_searches if can_afford else 0
+        # Safely access searches_remaining with default value
+        searches_remaining = status.get('searches_remaining', 0)
+        
+        can_afford = searches_remaining >= total_searches
+        remaining_after = searches_remaining - total_searches if can_afford else 0
         
         estimate = {
             "plant_name": plant_name or "Unknown",
             "web_searches": web_searches,
             "ai_questions": ai_searches,
             "total_searches_needed": total_searches,
-            "searches_available": status['searches_remaining'],
+            "searches_available": searches_remaining,
             "can_afford": can_afford,
             "remaining_after_operation": remaining_after,
-            "estimated_operations_remaining": status['searches_remaining'] // total_searches
+            "estimated_operations_remaining": searches_remaining // total_searches if total_searches > 0 else 0
         }
         
         return estimate
@@ -241,7 +251,7 @@ def can_start_research(plant_name: str = None, config: ConfigManager = None) -> 
 
 if __name__ == "__main__":
     # Example usage
-    print("\n🔍 SerpAPI Credit Monitor Demo\n")
+    print("\n📊 SerpAPI Credit Monitor Demo\n")
     
     config = ConfigManager(verbose=False)
     monitor = SerpAPIMonitor(config)
