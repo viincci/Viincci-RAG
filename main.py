@@ -16,7 +16,7 @@ import sys
 import warnings
 
 # Import and re-export core modules (prefer viincci_rag, fallback to V4)
-__version__ = "4.0.1"
+__version__ = "1.0.0"
 __author__ = "Viincci Team"
 __license__ = "MIT"
 
