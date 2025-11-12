@@ -19,7 +19,7 @@ if requirements_file.exists():
 
 setup(
     name="viincci-rag",
-    version="4.0.0",
+    version="4.0.1",
     author="Your Name",
     author_email="your.email@example.com",
     description="Universal multi-domain research system with RAG capabilities",

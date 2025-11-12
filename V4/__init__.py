@@ -1,9 +1,9 @@
 """
 V4 Package - Universal Research System
-Version 4.0.0
+Version 4.0.1
 """
 
-__version__ = "4.0.0"
+__version__ = "4.0.1"
 __author__ = "Your Name"
 __email__ = "your.email@example.com"
 import sys

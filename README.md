@@ -132,7 +132,7 @@ MIT License - See [LICENSE](LICENSE) file for details
 
 ---
 
-**Version**: 4.0.0 | **Status**: Beta | **License**: MIT
+**Version**: 4.0.1 | **Status**: Beta | **License**: MIT
 ```
 
 ## ✨ Features
